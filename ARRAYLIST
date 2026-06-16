@@ -1,0 +1,39 @@
+import java.util.ArrayList;
+import java.util.Collections;
+
+public class Arraylist {
+    public static void main(String[] args) {
+        //creating arraylist
+        ArrayList<Integer> L = new ArrayList<>();
+        //adding elements
+        L.add(0);
+        L.add(1);
+        L.add(2);
+        System.out.println(L);
+        //getting elements
+        System.out.println(L.get(0));
+        L.add(1,1);
+        System.out.println(L);
+
+        //inserting in middle
+        L.set(0,10);
+        System.out.println(L);
+
+        //removing 
+        L.remove(2);
+        System.out.println(L);
+
+        //default size
+        System.out.println(L.size());
+
+        //loops
+        for(int i=0;i<L.size();i++){
+            System.out.print(L.get(i)); 
+        }
+        System.out.println(" ");
+        
+        //sortingggg
+        Collections.sort(L);
+        System.out.println(L);
+    }
+}
