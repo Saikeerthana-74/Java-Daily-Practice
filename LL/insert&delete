@@ -1,0 +1,124 @@
+public class LL {
+    Node head;
+    class Node {
+        String data;
+        Node next;
+        Node(String data) {
+            this.data = data;
+            this.next = null;
+        }
+    }
+    // Add at beginning
+    public void addFirst(String data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        newNode.next = head;
+        head = newNode;
+    }
+    // Add at end
+    public void addLast(String data) {
+        Node newNode = new Node(data);
+        if (head == null) {
+            head = newNode;
+            return;
+        }
+        Node currNode = head;
+        while (currNode.next != null) {
+            currNode = currNode.next;
+        }
+        currNode.next = newNode;
+    }
+    // Print linked list
+    public void printList() {
+        if (head == null) {
+            System.out.println("Linked List is empty");
+            return;
+        }
+        Node currNode = head;
+        while (currNode != null) {
+            System.out.print(currNode.data + " -> ");
+            currNode = currNode.next;
+        }
+        System.out.println("NULL");
+    }
+
+    //delete first
+    public void deleteFirst(){
+        if(head==null){
+            System.out.println("There are no elements");
+        }
+        head = head.next;
+    }
+
+    //delete last 
+    public void deleteLast(){
+        Node temp = head;
+    while(temp.next.next != null){
+        temp = temp.next;
+}
+
+        temp.next = null;
+    }
+    //insert middle
+    public void insertMiddle(int pos, String data) {
+    if (pos == 1) {
+        addFirst(data);
+        return;
+    }
+    Node newNode = new Node(data);
+    Node currNode = head;
+    int count = 1;
+    while (count < pos - 1 && currNode != null) {
+        currNode = currNode.next;
+        count++;
+    }
+    if (currNode == null) {
+        System.out.println("Invalid Position");
+        return;
+    }
+    newNode.next = currNode.next;
+    currNode.next = newNode;
+}
+
+//delete last
+
+public void deleteMiddle(int pos) {
+    if (head == null) {
+        System.out.println("List is empty");
+        return;
+    }
+    if (pos == 1) {
+        deleteFirst();
+        return;
+    }
+    Node currNode = head;
+    int count = 1;
+    while (count < pos - 1 && currNode.next != null) {
+        currNode = currNode.next;
+        count++;
+    }
+    if (currNode.next == null) {
+        System.out.println("Invalid Position");
+        return;
+    }
+    currNode.next = currNode.next.next;
+}
+    public static void main(String[] args) {
+        LL list = new LL();
+        list.addFirst("a");
+        list.addFirst("s");
+        list.addLast("I");
+        list.printList();
+        list.deleteFirst();
+        list.printList();
+        list.deleteLast();
+        list.printList();
+        list.insertMiddle(2, "D");
+        list.printList();
+        list.insertMiddle(3, "V");
+        list.deleteMiddle(3);
+    }
+}
