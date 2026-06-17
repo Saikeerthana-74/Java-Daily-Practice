@@ -1,0 +1,14 @@
+public void reverseLinkedList() {
+           if (head == null || head.next == null) {
+               return;
+                }
+                Node prevNode = null;
+                Node currNode = head;
+                while (currNode != null) {
+                    Node nextNode = currNode.next;
+                    currNode.next = prevNode;
+                    prevNode = currNode;
+                    currNode = nextNode;
+                }
+                head = prevNode;
+}
